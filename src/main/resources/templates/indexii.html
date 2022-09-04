@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index Page Title</title>
+</head>
+
+
+
+<body style="padding:25px;">
+
+<article>
+<h2>Project 基本資訊</h2>
+<h3>實作內容</h3>
+<ol>
+	<li>幣別DB維護功能（查詢 / 新增 / 修改 / 刪除 功能API。）。
+		<ul>
+			<li>查詢（GET）：http://localhost:8080/api/search/{要查詢的字串}</li>
+			<li>新增（POST）：http://localhost:8080/api/，在 body 中放入 json 格式資料</li>
+			<li>修改（PUT）：http://localhost:8080/api/，在 body 中放入 json 格式資料</li>
+			<li>刪除（DELETE）：http://localhost:8080/api/</li>
+		</ul>
+	</li>
+	<li>呼叫 coindesk 的API。</li> 
+	<li>呼叫 coindesk 的API，並進行資料轉換，組成新API。 此新API 提供： 
+		<ul>
+			<li>A. 更新時間（時間格式範例：1990/01/01 00:00:00）。 </li>
+			<li>B. 幣別相關資訊（幣別，幣別中文名稱，以及匯率）。</li>
+		</ul>
+	</li>
+	<li>單元測試</li>
+</ol>
+<h3>開發框架與工具</h3>
+<ul>
+	<li>框架： Spring boot</li>
+	<li>package 庫： maven</li>
+	<li>資料庫： H2</li>
+	<li>IDE： eclipse</li>
+	<li>
+		匯率資料來源：
+		<a href="https://api.coindesk.com/v1/bpi/currentprice.json" target="blank">coindesk api</a>
+	</li>
+</ul>
+</article>
+
+
+<article>
+<h2>資料庫建立指令</h2>
+<pre><code>
+DROP TABLE IF EXISTS currency;
+
+CREATE TABLE currency (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  en_name VARCHAR(50) NOT NULL,
+  ch_name VARCHAR(50) NOT NULL
+);
+
+INSERT INTO currency (en_name, ch_name) VALUES
+  ('USD', '美元'),
+  ('GBP', '英鎊'),
+  ('EUR', '歐元');
+</code></pre>
+H2資料庫登入位置：<a href="http://localhost:8080/h2-console">http://localhost:8080/h2-console</a>
+</article>
+
+</body>
+</html>
