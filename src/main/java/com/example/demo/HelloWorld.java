@@ -1,20 +1,23 @@
 package com.example.demo;
 
+import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 
 
-@RestController
+@Controller
 public class HelloWorld {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
 	
-	@RequestMapping("/")
+//	@RequestMapping("/")
+	@GetMapping("/")
 	public String hello(){
-		return "此頁面使用 Maven + Spring Boot, IDE eclipse, database H2.";
+		return "index";//"此頁面使用 Maven + Spring Boot, IDE eclipse, database H2.";
 	}
 	
 	@RequestMapping("/helloworld")
